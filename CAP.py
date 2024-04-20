@@ -10,3 +10,7 @@ class Taxpayer:
     self.gis = gis
 
   # ... other methods for deductions, taxable income, and tax calculation
+
+Detail= Taxpayer(income=25000, employment_type= "Regular", sector= "government", children= 3, nppf=0,  gis=300 )
+# Accessing attributes and calling methods
+print("Income:", Detail.income, "Employment type: ", Detail.employment_type, "Sector: ", Detail.sector, "Children: ", Detail.children, "nppf:",  Detail.nppf, "gis:", Detail.gis)
