@@ -37,22 +37,93 @@ class Information:
         
 
 # Create an instance of the Information class with assumed Bhutanese values
-Info = Information(
+Info = Information (
     basic_pay=14675,  # Nu. (average salary can vary depending on profession and experience)
     employment_type="Permanent",  # "Regular" can also be used
     sector="Government",
     children=2,
     nppf=14675* 12/100,  # Assuming 12% NPPF contribution (adjust based on actual rate)
-    gis=300,  # Replace with a realistic GIS contribution (data available online)
-    basic_pay_allowances=(15/100)*14675,  # 15% basic pay allowance (common but can vary)
+    gis=300,  # Replace with a realistic GIS contribution (data available onlinebasic_pay_allowances=(15/100)*14675,  # 15% basic pay allowance (common but can vary)
+    basic_pay_allowances=(15/100)*14675,
     fees_remuneration=0,  # Assuming no fees received in this example
     bonus=5000,  # Nu. (bonus amounts can vary greatly)
     commission=0,  # Assuming no commission in this example
     leave_encashment=1225,  # Assuming no unused leave to encash
     shareofProfirreceived=0,  # Assuming no profit-sharing in this example
     consultancy_income=0,  # Assuming no consultancy income in this example
-    benefitsReceived=3500  # Nu. House rent allowance
+    benefitsReceived=3500    
 )
 # Call the display_info method to print the information
 Info.display_info()
 
+
+class GrossPay:
+  def __init__(self, information):
+    self.information = information
+
+  def calculate_gross_pay(self):
+    """Calculates and returns the gross pay (monthly)."""
+    gross_pay = (
+        self.information.basic_pay +
+        self.information.basic_pay_allowances +
+        self.information.fees_remuneration
+    )
+    return gross_pay
+
+# Create a GrossPay object using the Information object
+gross_pay = GrossPay(Info)
+
+# Calculate and potentially display gross pay
+gross_pay = gross_pay.calculate_gross_pay()
+print(f"Gross Pay: Nu.{gross_pay:.2f}")
+
+
+class Income:
+  def __init__(self, information):
+    self.information = information
+
+  def calculate_total_income(self):
+    """Calculates and returns the total annual income."""
+    # Basic components
+    gross_pay = GrossPay(Info)
+    gross_pay = gross_pay.calculate_gross_pay()
+
+    # Additional components (modify based on your needs)
+    bonus = self.information.bonus_yearly
+    commission = self.information.commission
+    leave_encashment = self.information.leave_encashment
+    shareof_profit = self.information.shareofProfirreceived_yearly
+    consultancy_income = self.information.consultancy_income_yearly
+
+    # Calculate total income
+    total_income_annual = (gross_pay) + bonus + commission + leave_encashment + shareof_profit + consultancy_income
+    return total_income_annual
+Income = Income(Info)
+
+# Calculate and potentially display gross pay
+IncomeEarned= Income.calculate_total_income()
+print(f"Income : Nu.{IncomeEarned:.2f}")
+
+
+class deductions:
+  def __init__(self, information):
+    self.information = information
+
+  def calculate_deductions(self):
+    """Calculates and returns the total annual income."""
+    # Basic components
+    deductions = deductions(Info)
+    deductions = deductions.calculate_deductions()
+
+    # Additional components (modify based on your needs)
+    nppf = self.information.nppf # Decimal value (e.g., 0.12 for 12%)
+    gis=  self.information.gis
+
+    # Calculate total income
+    total_deductions = nppf+gis
+    return  total_deductions
+deductions = deductions(Info)
+
+# Calculate and potentially display gross pay
+additonDec= deductions.calculate_deductions()
+print(f"Income : Nu.{additonDec:.2f}")
