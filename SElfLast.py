@@ -56,3 +56,11 @@ Info = Information(
 # Call the display_info method to print the information
 Info.display_info()
 
+
+class Net_income: 
+  def getincome(self):
+    print(f"Total Annual Income: Nu.{Info.basic_pay + Info.basic_pay_allowances + Info.bonus_yearly + Info.leave_encashment + Info.benefitsReceived_monthly- Info.nppf -Info.gis :.2f}")
+
+I=Net_income()
+I.getincome()
+

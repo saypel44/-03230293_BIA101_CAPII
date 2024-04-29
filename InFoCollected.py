@@ -1,12 +1,12 @@
-class Information:
+class InFoCollected:
     def __init__(self, basic_pay, employment_type, sector, children, nppf, gis, basic_pay_allowances, fees_remuneration, bonus, commission, leave_encashment, shareofProfirreceived, consultancy_income, benefitsReceived):
-        self.basic_pay = basic_pay
+        self.basic_pay = basic_pay * 12
         self.employment_type = employment_type
         self.sector = sector
         self.children = children
-        self.nppf = nppf
-        self.gis = gis
-        self.basic_pay_allowances = basic_pay_allowances
+        self.nppf = nppf * 12/100
+        self.gis = gis 
+        self.basic_pay_allowances = basic_pay_allowances *15/100
         self.fees_remuneration = fees_remuneration
         self.bonus = bonus
         self.commission = commission
@@ -34,14 +34,14 @@ class Information:
         print(f"Benefits Received:  Nu.{self.benefitsReceived:.2f}")
 
 # Create an instance of the Information class
-Info = Information(
+Info = InFoCollected(
     basic_pay=14675,  # Nu. (average salary can vary depending on profession and experience)
     employment_type="Permanent",  # "Regular" can also be used
     sector="Government",
     children=2,
-    nppf=14675 * 12/100,  # Assuming 12% NPPF contribution (adjust based on actual rate)
+    nppf=14675,  # Assuming 12% NPPF contribution (adjust based on actual rate)
     gis=300,  # Replace with a realistic GIS contribution (data available online)
-    basic_pay_allowances=0.15,  # 15% basic pay allowance (common but can vary)
+    basic_pay_allowances=14675,  # 15% basic pay allowance (common but can vary)
     fees_remuneration=0,  # Assuming no fees received in this example
     bonus=5000,  # Nu. (bonus amounts can vary greatly)
     commission=0,  # Assuming no commission in this example
