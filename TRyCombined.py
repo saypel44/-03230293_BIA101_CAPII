@@ -122,8 +122,12 @@ class deductions:
     # Calculate total income
     total_deductions = nppf+gis
     return  total_deductions
-deductions = deductions(Info)
+    total_deductions = deductions.calculate_deductions()
+    print("Total deductions:", total_deductions)
+
+
+# deductions = deductions(Info)
 
 # Calculate and potentially display gross pay
-additonDec= deductions.calculate_deductions()
-print(f"Income : Nu.{additonDec:.2f}")
+# Dec= deductions.calculate_deductions()
+# print(f"Income : Nu.{Dec:.2f}")

@@ -2,7 +2,7 @@ class deductions:
   def __init__(self, information):
     self.information = information
 
-  def calculate_deductions(self):
+  def calculate_deductions(self, Info):
     """Calculates and returns the total annual income."""
     # Basic components
     deductions = deductions(Info)
@@ -15,7 +15,7 @@ class deductions:
     # Calculate total income
     total_deductions = nppf+gis
     return  total_deductions
-deductions = deductions(Info)
+# deductions = deductions(Info)
 
 # Calculate and potentially display gross pay
 additonDec= deductions.calculate_deductions()
