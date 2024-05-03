@@ -38,7 +38,7 @@ class Information:
 
 # Create an instance of the Information class with assumed Bhutanese values
 Info = Information(
-    basic_pay=14675,  # Nu. (average salary can vary depending on profession and experience)
+    basic_pay=int(input("enter basic pay: ")), # Nu. (average salary can vary depending on profession and experience)
     employment_type="Permanent",  # "Regular" can also be used
     sector="Government",
     children=2,
@@ -64,3 +64,4 @@ class Net_income:
 I=Net_income()
 I.getincome()
 
+#CReate each class and then input them and calculate
