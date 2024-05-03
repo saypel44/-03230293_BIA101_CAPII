@@ -1,15 +1,14 @@
-class Basic_pay:
-    def __init__(self,basic_pay):
-        self.basic_pay = basic_pay *12
-    def display_BP(self):
-        print("The basic pay I received in a year: ", self.basic_pay)
-BP= Basic_pay(int(input("Enter basic pay in a month: ")))
-BP.display_BP()
+class Bonus:
+    def __init__(self, bonus_percentage):
+        self.bonus_percentage = bonus_percentage / 100
 
-class Allowance:
-    def init(self, basic_pay_allowances):
-        self.basic_pay_allowances = basic_pay_allowances *12
-    def display_Allowance(self):
-        print("The basic pay allowance I received in a year: ", self.basic_pay_allowances)
-A= Allowance(float(input("Enter basic pay allowance i received in a month in percentage: ")))
-A.display_Allowance()
+    def calculate_annual_bonus (self, add.getaddBPA):
+        self.annual_bonus = add.getaddBPA * self.bonus_percentage * 12
+        return self.annual_bonus  # Return calculated annual bonus
+
+    def display_annual_bonus(self, add.getaddBPA):
+        annual_bonus = self.calculate_annual_bonus(add.getaddBPA)
+        print(f"The annual bonus I received: Nu.{annual_bonus:}")
+
+A = Bonus(bonus_percentage=int(input("Enter bonus I received in a month: ")))
+A.display_annual_bonus(add.getaddBPA)

@@ -1,6 +1,0 @@
-from InFoCollected import InFoCollected
-
-
-    
-                        
-                        

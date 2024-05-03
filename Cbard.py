@@ -3,11 +3,11 @@ class BasicPay:
         self.basic_pay = basic_pay
 
     def calculate_annual_basicpay(self):
-        self.annual_income = self.basic_pay * 12  # Calculate annual income here
+        self.annual_basicPay = self.basic_pay * 12  # Calculate annual income here
 
     def display_BP(self):
         self.calculate_annual_basicpay()  # Call the calculation method before displaying
-        print(f"The annual basic pay I received: Nu.{ self.annual_income:}")
+        print(f"The annual basic pay I received: Nu.{ self.annual_basicPay:}")
 
 BP = BasicPay(basic_pay=int(input("Enter basic pay in a month: ")))
 BP.display_BP()  # Call the display method to show the result
@@ -26,43 +26,21 @@ class Allowance:
 A = Allowance(allowance_percentage=int(input("Enter basic pay allowance I received in a month in percentage: ")))
 A.display_Allowance(BP.basic_pay)  # Pass basic pay object's basic_pay for calculation
 
+# class AddBPA:
+#     def getaddBPA(self):
+#         print("Total basic pay received in a year is: ", BP.annual_income + A.annual_allowance)
+# add=AddBPA()
+# add.getaddBPA()
+
 class AddBPA:
-    def getaddBPA(self):
-        print("Total basic pay received in a year is: ", BP.annual_income + A.annual_allowance)
-add=AddBPA()
-add.getaddBPA()
+    def calculate_AddBPA(self,annual_basicPay, annual_allowance):
+        self.AddBPA =annual_basicPay + annual_allowance
 
-class income:
-    def __init__(self,Annual_bonus):
-        self.Annual_bonus = Annual_bonus       
+    def display_AddBPA(self,annual_basicPay, annual_allowance ):
+        self.calculate_AddBPA(annual_basicPay, annual_allowance)  # Calculate allowance based on basic pay
+        print(f"The added I received: Nu.{self.AddBPA:}")
 
-    def calculate_Annual_bonus(self):
-        # Calculate annual income here
-        self.Annual_bonus =  self.Annual_bonus *12
-        
-    def display_AI(self):
-        self.calculate_annual_allowance(self.basic_pay)  # Use self.basic_pay
-        print(f"The annual basic pay allowance I received: Nu.{self.annual_allowance:}")
-
-    # def display_Annual_bonus(self):
-    #     self.calculate_Annual_bonus()  # Call the calculation method before displaying
-    #     print(f"The annual bonus I received: Nu.{self.Annual_bonus:}")
-AI = income(Annual_bonus=input("Enter annual bonus received in a month: "))
-AI.display_AI()
-
-# self.fees_remuneration = fees_remuneration  # Nu.
-#         self.bonus_yearly = bonus # Nu.
-#         self.commission = commission  # Nu.
-#         self.leave_encashment= leave_encashment  # Nu.
-#         self.shareofProfirreceived_yearly = shareofProfirreceived # Nu.
-#         self.consultancy_income_yearly = consultancy_income  # Nu.
-#         self.benefitsReceived_monthly = benefitsReceived  # Nu.
+Add= AddBPA()
+Add.display_AddBPA(BP.annual_basicPay, A.annual_allowance)
 
 
-# self.fees_remuneration = fees_remuneration *12  # Nu.
-#         self.bonus_yearly = bonus # Nu.
-#         self.commission = commission  # Nu.
-#         self.leave_encashment= leave_encashment  # Nu.
-#         self.shareofProfirreceived_yearly = shareofProfirreceived # Nu.
-#         self.consultancy_income_yearly = consultancy_income  # Nu.
-#         self.benefitsReceived_monthly = benefitsReceived*12
