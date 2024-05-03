@@ -35,16 +35,16 @@ class Information:
 
 # Create an instance of the Information class
 Info = Information(
-    basic_pay=14675,  # Nu. (average salary can vary depending on profession and experience)
+    ##basic_pay=14675,  # Nu. (average salary can vary depending on profession and experience)
     employment_type="Permanent",  # "Regular" can also be used
     sector="Government",
     children=2,
     nppf=14675,  # Assuming 12% NPPF contribution (adjust based on actual rate)
     gis=300,  # Replace with a realistic GIS contribution (data available online)
-    basic_pay_allowances=14675,  # 15% basic pay allowance (common but can vary)
-    fees_remuneration=0,  # Assuming no fees received in this example
-    bonus=5000,  # Nu. (bonus amounts can vary greatly)
-    commission=0,  # Assuming no commission in this example
+    #basic_pay_allowances=14675,  # 15% basic pay allowance (common but can vary)
+    #fees_remuneration=0,  # Assuming no fees received in this example
+    #bonus=5000,  # Nu. (bonus amounts can vary greatly)
+    #commission=0,  # Assuming no commission in this example
     leave_encashment=1225,  # Assuming no unused leave to encash
     shareofProfirreceived=0,  # Assuming no profit-sharing in this example
     consultancy_income=0,  # Assuming no consultancy income in this example
