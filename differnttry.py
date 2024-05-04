@@ -364,10 +364,10 @@ Add.display_AddCI(BP.annual_basicPay, A.annual_allowance, com.commisiion, lc.lea
 
 class OtherBenefits:
     def __init__(self, house_rent_allowances, mobile_allowances, conveyance_allowances, ltc, anyother_allowances):
-        self.house_rent_allowances = house_rent_allowances / 100
-        self.mobile_allowances = mobile_allowances / 100
-        self.conveyance_allowances = conveyance_allowances / 100
-        self.ltc = ltc / 100
+        #self.house_rent_allowances = house_rent_allowances / 100
+        #self.mobile_allowances = mobile_allowances / 100
+        #self.conveyance_allowances = conveyance_allowances / 100
+        #self.ltc = ltc / 100
         self.anyother_allowances = anyother_allowances / 100
 
     def calculate_total_other_benefits(self, basic_pay):

@@ -177,28 +177,69 @@ Add.display_AddCI(BP.annual_basicPay, A.annual_allowance, com.commisiion, lc.lea
 
 # 8. other benefited received
 class Other_benefits:
-    def __init__(self, HouseRentAllowances, MobileAllowances, ConveyanceAllowances, LTC, AnyotherAllowances):
-        self.HouseRentAllowances= HouseRentAllowances / 100  # Convert percentage to decimal
-        self.MobileAllowances= MobileAllowances / 100
-        self.ConveyanceAllowances= ConveyanceAllowances / 100
-        self.LTC= LTC / 100
-        self.AnyotherAllowances= AnyotherAllowances / 100
+    class HouseRentAllowances:
+        def __init__(self,HouseRentAllowances):
+            self.HouseRentAllowances= HouseRentAllowances/ 100  # Convert percentage to decimal
 
-    def calculate_Other_benefits(self, basic_pay):
-        self.HouseRentAllowances= basic_pay * self.HouseRentAllowances * 12
-        self.MobileAllowances= basic_pay * self.MobileAllowances * 12
-        self.ConveyanceAllowances= basic_pay * self.ConveyanceAllowances * 12
-        self.LTC= basic_pay * self.LTC * 12
-        self.AnyotherAllowances= basic_pay * self.AnyotherAllowances * 12
+        def calculate_HouseRentAllowances(self, basic_pay):
+            self.HouseRentAllowances= basic_pay * self.HouseRentAllowances * 12
 
-    def display_Other_benefits(self, AddCI):
-        self.calculate_Other_benefits(AddCI)  # Assuming 'basic_pay' is defined elsewhere
-        print(f"The other benefits received: Nu.{self.HouseRentAllowances, self.MobileAllowances ,self.ConveyanceAllowances,self.LTC,self.AnyotherAllowances:.2f}")  # Format to 2 decimals
+        def display_HouseRentAllowances(self,AddCI):
+            self.calculate_HouseRentAllowances(AddCI)  # Calculate allowance based on basic pay
+            print(f"The House Rent Allowances I received: Nu.{self.HouseRentAllowances:}")
+    HA= HouseRentAllowances(HouseRentAllowances=float(input("Enter House rent Allowances received I received in a month in percentage: ")))
+    
+    class mobile_allowances:
+        def __init__(self,mobile_allowances):
+            self.mobile_allowances= mobile_allowances/ 100  # Convert percentage to decimal
 
-OB= Other_benefits(HouseRentAllowances=float(input("Enter House Rent Allowances received I received in a month in percentage: ")),
-                    MobileAllowances=float(input("Enter Mobile Allowances received I received in a month in percentage: ")),                     
-                    ConveyanceAllowances=float(input("Enter Conveyance Allowances received I received in a month in percentage: ")),                      
-                    LTC=float(input("Enter LTC Allowances received I received in a month in percentage: ")),                     
-                    AnyotherAllowances=float(input("Enter Any other Allowances received I received in a month in percentage: ")))
+        def calculate_mobile_allowances(self, basic_pay):
+            self.mobile_allowances= basic_pay * self.mobile_allowances * 12
 
-OB.display_Other_benefits(Add.AddCI)
+        def display_mobile_allowances(self,AddCI):
+            self.calculate_mobile_allowances(AddCI)  # Calculate allowance based on basic pay
+            print(f"The mobile Allowances I received: Nu.{self.mobile_allowances:}")
+    MA= mobile_allowances(mobile_allowances=float(input("Enter mobile Allowances received I received in a month in percentage: ")))
+
+    class conveyance_allowances:
+        def __init__(self,conveyance_allowances):
+            self.conveyance_allowances= conveyance_allowances / 100  # Convert percentage to decimal
+
+        def calculate_conveyance_allowances(self, basic_pay):
+            self.conveyance_allowances= basic_pay * self.conveyance_allowances * 12
+
+        def display_conveyance_allowances(self,AddCI):
+            self.calculate_conveyance_allowances(AddCI)  # Calculate allowance based on basic pay
+            print(f"The conveyance allowances I received: Nu.{self.conveyance_allowances:}")
+    CA= conveyance_allowances(conveyance_allowances=float(input("Enter conveyance allowances received I received in a month in percentage: ")))
+
+    class ltc:
+        def __init__(self,ltc):
+            self.ltc= ltc / 100  # Convert percentage to decimal
+
+        def calculate_ltc(self, basic_pay):
+            self.ltc= basic_pay * self.ltc * 12
+
+        def display_ltc(self,AddCI):
+            self.calculate_ltc(AddCI)  # Calculate allowance based on basic pay
+            print(f"The ltc allowances I received: Nu.{self.ltc:}")
+    lTCA= ltc(ltc=float(input("Enter ltc allowances received I received in a month in percentage: ")))
+
+    class anyother_allowances:
+        def __init__(self,anyother_allowances):
+            self.anyother_allowances=anyother_allowances / 100  # Convert percentage to decimal
+
+        def calculate_anyother_allowances(self, basic_pay):
+            self.anyother_allowances= basic_pay * self.anyother_allowances * 12
+
+        def display_anyother_allowances(self,AddCI):
+            self.calculate_anyother_allowances(AddCI)  # Calculate allowance based on basic pay
+            print(f"The any other allowances I received: Nu.{self.anyother_allowances:}")
+    ATA = anyother_allowances(anyother_allowances=float(input("Enter any other allowances received I received in a month in percentage: ")))
+
+OB=Other_benefits()
+OB.HA.display_HouseRentAllowances(Add.AddCI)  
+OB.MA.display_mobile_allowances(Add.AddCI)
+OB.CA.display_conveyance_allowances(Add.AddCI)
+OB.lTCA.display_ltc(Add.AddCI)
+OB.ATA.display_anyother_allowances(Add.AddCI)
