@@ -1,3 +1,4 @@
+# 1. Basic Pay
 class BasicPay:
     def __init__(self, basic_pay):
         self.basic_pay = basic_pay
@@ -12,6 +13,7 @@ class BasicPay:
 BP = BasicPay(basic_pay=float(input("Enter basic pay in a month: ")))
 BP.display_BP()  # Call the display method to show the result
 
+#2. Basic allowances
 class Allowance:
     def __init__(self, allowance_percentage):
         self.allowance_percentage = allowance_percentage / 100  # Convert percentage to decimal
@@ -43,6 +45,7 @@ class AddBPA:
 Add= AddBPA()
 Add.display_AddBPA(BP.annual_basicPay, A.annual_allowance)
 
+#3. Fees remuneration
 class fees_remuneration:
     def __init__(self, fees_remuneration):
         self.fees_remuneration = fees_remuneration / 100  # Convert percentage to decimal
@@ -68,6 +71,7 @@ class Addfees_remuneration:
 Add= Addfees_remuneration()
 Add.display_Addfees_remuneration(BP.annual_basicPay, A.annual_allowance, remu.fees_remuneration)
 
+#4.Commission
 class commisiion:
     def __init__(self, commisiion):
         self.commisiion = commisiion / 100  # Convert percentage to decimal
@@ -80,25 +84,121 @@ class commisiion:
         print(f"The commission I received: Nu.{self.commisiion:}")
 
 com = commisiion(commisiion=float(input("Enter commission I received in a month in percentage: ")))
-com.display_commisiion(fees_remuneration) 
+com.display_commisiion(Add.Addfees_remuneration) 
 
 class Addcom:
     def calculate_Addcom(self,annual_basicPay, annual_allowance,commission):
-        self.AddBPA =annual_basicPay + annual_allowance + commission
+        self.Addcom =annual_basicPay + annual_allowance + commission
 
     def display_Addcom(self,annual_basicPay, annual_allowance, commission ):
-        self.calculate_AddBPA(annual_basicPay, annual_allowance, commission)  # Calculate allowance based on basic pay
+        self.calculate_Addcom(annual_basicPay, annual_allowance, commission)  # Calculate allowance based on basic pay
         print(f"The added commission I received: Nu.{self.Addcom:}")
 
 Add= Addcom()
-Add.display_AddBPA(BP.annual_basicPay, A.annual_allowance,com.commisiion )
+Add.display_Addcom(BP.annual_basicPay, A.annual_allowance,com.commisiion )
 
+# 5.Leave encashment
+class leave_encashment:
+    def __init__(self, leave_encashment):
+        self.leave_encashment = leave_encashment / 100  # Convert percentage to decimal
 
+    def calculate_leave_encashment(self, basic_pay):
+        self.leave_encashment = basic_pay * self.leave_encashment * 12
 
+    def display_leave_encashment(self, Addcom):
+        self.calculate_leave_encashment(Addcom)  # Calculate allowance based on basic pay
+        print(f"The leave encashment I received: Nu.{self.leave_encashment:}")
 
+lc = leave_encashment(leave_encashment=float(input("Enter leave encashment I received in a month in percentage: ")))
+lc.display_leave_encashment(Add.Addcom)
 
+class Addlc:
+    def calculate_Addlc(self,annual_basicPay, annual_allowance,commission, leave_encashment ):
+        self.Addlc =annual_basicPay + annual_allowance + commission + leave_encashment
 
+    def display_Addlc(self,annual_basicPay, annual_allowance, commission, leave_encashment ):
+        self.calculate_Addlc(annual_basicPay, annual_allowance, commission, leave_encashment)  # Calculate allowance based on basic pay
+        print(f"The added commission I received: Nu.{self.Addlc:}")
 
+Add= Addlc()
+Add.display_Addlc(BP.annual_basicPay, A.annual_allowance, com.commisiion, lc.leave_encashment )
 
+#6.share of profit
+class shareofProfirreceived:
+    def __init__(self,shareofProfirreceived):
+        self.shareofProfirreceived = shareofProfirreceived/ 100  # Convert percentage to decimal
 
+    def calculate_shareofProfirreceived(self, basic_pay):
+        self.shareofProfirreceived= basic_pay * self.shareofProfirreceived * 12
 
+    def display_shareofProfirreceived(self, Addlc):
+        self.calculate_shareofProfirreceived(Addlc)  # Calculate allowance based on basic pay
+        print(f"The leave encashment I received: Nu.{self.shareofProfirreceived:}")
+
+SOP = shareofProfirreceived(shareofProfirreceived=float(input("Enter share of Profit received I received in a month in percentage: ")))
+SOP.display_shareofProfirreceived(Add.Addlc)
+
+class AddSoP:
+    def calculate_AddSoP(self,annual_basicPay, annual_allowance,commission, leave_encashment, shareofProfirreceived  ):
+        self.AddSoP =annual_basicPay + annual_allowance + commission + leave_encashment+ shareofProfirreceived
+
+    def display_AddSoP(self,annual_basicPay, annual_allowance, commission, leave_encashment, shareofProfirreceived ):
+        self.calculate_AddSoP(annual_basicPay, annual_allowance, commission, leave_encashment, shareofProfirreceived)  # Calculate allowance based on basic pay
+        print(f"The added commission I received: Nu.{self.AddSoP:}")
+
+Add= AddSoP()
+Add.display_AddSoP(BP.annual_basicPay, A.annual_allowance, com.commisiion, lc.leave_encashment, SOP.shareofProfirreceived )
+
+#7. Consultancy income
+class consultancyIncome:
+    def __init__(self,consultancyIncome):
+        self.consultancyIncome= consultancyIncome/ 100  # Convert percentage to decimal
+
+    def calculate_consultancyIncome(self, basic_pay):
+        self.consultancyIncome= basic_pay * self.consultancyIncome * 12
+
+    def display_consultancyIncome(self, AddSoP):
+        self.calculate_consultancyIncome(AddSoP)  # Calculate allowance based on basic pay
+        print(f"The consultancy Income I received: Nu.{self.consultancyIncome:}")
+
+CI= consultancyIncome(consultancyIncome=float(input("Enter share of Profit received I received in a month in percentage: ")))
+CI.display_consultancyIncome(Add.AddSoP)
+
+class AddCI:
+    def calculate_AddCI(self,annual_basicPay, annual_allowance,commission, leave_encashment, shareofProfirreceived, consultancyIncome  ):
+        self.AddCI =annual_basicPay + annual_allowance + commission + leave_encashment+ shareofProfirreceived + consultancyIncome
+
+    def display_AddCI(self,annual_basicPay, annual_allowance, commission, leave_encashment, shareofProfirreceived, consultancyIncome ):
+        self.calculate_AddCI(annual_basicPay, annual_allowance, commission, leave_encashment, shareofProfirreceived, consultancyIncome)  # Calculate allowance based on basic pay
+        print(f"The added consultancy Income I received: Nu.{self.AddCI:}")
+
+Add= AddCI()
+Add.display_AddCI(BP.annual_basicPay, A.annual_allowance, com.commisiion, lc.leave_encashment, SOP.shareofProfirreceived, CI.consultancyIncome )
+
+# 8. other benefited received
+class Other_benefits:
+    def __init__(self, HouseRentAllowances, MobileAllowances, ConveyanceAllowances, LTC, AnyotherAllowances):
+        self.HouseRentAllowances= HouseRentAllowances / 100  # Convert percentage to decimal
+        self.MobileAllowances= MobileAllowances / 100
+        self.ConveyanceAllowances= ConveyanceAllowances / 100
+        self.LTC= LTC / 100
+        self.AnyotherAllowances= AnyotherAllowances / 100
+
+    def calculate_Other_benefits(self, basic_pay):
+        self.HouseRentAllowances= basic_pay * self.HouseRentAllowances * 12
+        self.MobileAllowances= basic_pay * self.MobileAllowances * 12
+        self.ConveyanceAllowances= basic_pay * self.ConveyanceAllowances * 12
+        self.LTC= basic_pay * self.LTC * 12
+        self.AnyotherAllowances= basic_pay * self.AnyotherAllowances * 12
+
+    def display_Other_benefits(self, AddCI):
+        self.calculate_Other_benefits(AddCI)  # Assuming 'basic_pay' is defined elsewhere
+        print(f"The other benefits received: Nu.{self.HouseRentAllowances, self.MobileAllowances ,self.ConveyanceAllowances,self.LTC,self.AnyotherAllowances:.2f}")  # Format to 2 decimals
+
+OB= Other_benefits(HouseRentAllowances=float(input("Enter House Rent Allowances received I received in a month in percentage: ")),
+                    MobileAllowances=float(input("Enter Mobile Allowances received I received in a month in percentage: ")),                     
+                    ConveyanceAllowances=float(input("Enter Conveyance Allowances received I received in a month in percentage: ")),                      
+                    LTC=float(input("Enter LTC Allowances received I received in a month in percentage: ")),                     
+                    AnyotherAllowances=float(input("Enter Any other Allowances received I received in a month in percentage: ")))
+
+OB.display_Other_benefits(Add.AddCI)
