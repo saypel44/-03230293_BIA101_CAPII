@@ -229,13 +229,24 @@ class Other_benefits:
         def __init__(self,anyother_allowances):
             self.anyother_allowances=anyother_allowances / 100  # Convert percentage to decimal
 
-        def calculate_anyother_allowances(self, basic_pay):
-            self.anyother_allowances= basic_pay * self.anyother_allowances * 12
+        def calculate_Totalanyother_allowances(self, basic_pay):
+            self.Totalanyother_allowances= basic_pay * self.anyother_allowances * 12
 
         def display_anyother_allowances(self,AddCI):
-            self.calculate_anyother_allowances(AddCI)  # Calculate allowance based on basic pay
-            print(f"The any other allowances I received: Nu.{self.anyother_allowances:}")
+            self.calculate_Totalanyother_allowances(AddCI)  # Calculate allowance based on basic pay
+            print(f"The any other allowances I received: Nu.{self.Totalanyother_allowances:}")
     ATA = anyother_allowances(anyother_allowances=float(input("Enter any other allowances received I received in a month in percentage: ")))
+
+
+    class Total_Other_benefits:
+        def calculate_Total_Other_benefit (self, HouseRentAllowances, mobile_allowances, conveyance_allowances,ltc, anyother_allowances ):
+            self.Total_Other_benefits=  HouseRentAllowances + mobile_allowances + conveyance_allowances + ltc + anyother_allowances 
+
+        def display_Total_Other_benefits(self,HouseRentAllowances, mobile_allowances, conveyance_allowances,ltc, anyother_allowances):
+            self.calculate_Total_Other_benefit(HouseRentAllowances, mobile_allowances, conveyance_allowances,ltc, anyother_allowances)  # Calculate allowance based on basic pay
+            print(f"The Total_Other_benefits I received: Nu.{self.Total_Other_benefits:}")
+    TOB= Total_Other_benefits()
+    TOB.display_Total_Other_benefits(HA.HouseRentAllowances, MA.mobile_allowances,CA.conveyance_allowances, lTCA.ltc, ATA.anyother_allowances )
 
 OB=Other_benefits()
 OB.HA.display_HouseRentAllowances(Add.AddCI)  
@@ -243,3 +254,4 @@ OB.MA.display_mobile_allowances(Add.AddCI)
 OB.CA.display_conveyance_allowances(Add.AddCI)
 OB.lTCA.display_ltc(Add.AddCI)
 OB.ATA.display_anyother_allowances(Add.AddCI)
+OB.TOB.display_Total_Other_benefits(OB.HA.HouseRentAllowances, OB.MA.mobile_allowances,OB.CA.conveyance_allowances, OB.lTCA.ltc, OB.ATA.anyother_allowances )
