@@ -177,8 +177,15 @@ Add.display_AddCI(BP.annual_basicPay, A.annual_allowance, com.commisiion, lc.lea
 
 # 8. other benefited received
 class Other_benefits:
+    def __init__( self ):
+        self.HouseRentAllowances=None 
+        self.mobile_allowances=None 
+        self.conveyance_allowances=None 
+        self.ltc=None 
+        self.anyother_allowances=None 
+
     class HouseRentAllowances:
-        def __init__(self,HouseRentAllowances):
+        def __init__(self, HouseRentAllowances):
             self.HouseRentAllowances= HouseRentAllowances/ 100  # Convert percentage to decimal
 
         def calculate_HouseRentAllowances(self, basic_pay):
@@ -255,3 +262,22 @@ OB.CA.display_conveyance_allowances(Add.AddCI)
 OB.lTCA.display_ltc(Add.AddCI)
 OB.ATA.display_anyother_allowances(Add.AddCI)
 OB.TOB.display_Total_Other_benefits(OB.HA.HouseRentAllowances, OB.MA.mobile_allowances,OB.CA.conveyance_allowances, OB.lTCA.ltc, OB.ATA.anyother_allowances )
+
+class AddOtherBenifits:
+    def calculate_AddOtherBenifits(self,annual_basicPay, annual_allowance,commission, leave_encashment, shareofProfirreceived, consultancyIncome , Total_Other_benefits ):
+        self.AddOtherBenifits =annual_basicPay + annual_allowance + commission + leave_encashment+ shareofProfirreceived + consultancyIncome+ Total_Other_benefits
+
+    def display_AddOtherBenifits(self,annual_basicPay, annual_allowance, commission, leave_encashment, shareofProfirreceived, consultancyIncome, Total_Other_benefits ):
+        self.calculate_AddOtherBenifits(annual_basicPay, annual_allowance, commission, leave_encashment, shareofProfirreceived, consultancyIncome, Total_Other_benefits)  # Calculate allowance based on basic pay
+        print(f"The added Add Other Benifits I received: Nu.{self.AddOtherBenifits:}")
+
+AddOtherBenifits= AddOtherBenifits()
+AddOtherBenifits.display_AddOtherBenifits(BP.annual_basicPay, A.annual_allowance, com.commisiion, lc.leave_encashment, SOP.shareofProfirreceived, CI.consultancyIncome , OB.TOB.Total_Other_benefits)
+
+
+
+#aming Conventions: Standardize class and method naming for better readability (e.g., AnnualIncome instead of BasicPay, calculateTotalBenefits instead of display_Total_Other_benefits).
+# Code Structure: Refactor the redundant accumulation logic in the Add* classes. Consider a single class with methods to calculate the total based on different earning types.
+# Error Handling: Implement error handling for invalid user input (e.g., negative percentages).
+# Inheritance: Explore inheritance for code reuse as mentioned earlier.
+# Comments: Add comments to explain the purpose of classes and methods for better maintainability.
