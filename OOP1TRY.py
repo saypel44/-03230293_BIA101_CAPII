@@ -8,11 +8,6 @@ obj1 = AnnualBasicPay()
 obj1.setBasicPay(float(input("Enter your basic pay: ")))
 print(obj1.getBasicPay())
 
-# class Allowance:
-#     def setAllowance(self, Allowance ):
-#         self.Allowance= (Allowance/100) 
-#     def getAllowance(self, BasicPay, obj1.AnnualBasicPay):
-#         return (self.Allowance * BasicPay * 12 ) + obj1.AnnualBasicPay
 
 class Allowance:
     def __init__(self, allowance_percentage=0.0):
@@ -202,6 +197,7 @@ print(obj14.get_total_GIS(obj1.getBasicPay()))
 
 
 class Netincome:
+
     def get_total_income(self, 
                          AnnualBasicPay, 
                          Allowance, 
@@ -219,6 +215,7 @@ class Netincome:
                          GIS
                          
                          ):
+        
         return (AnnualBasicPay 
                 + Allowance
                 +fees_remuneration
@@ -253,3 +250,55 @@ print(obj40.get_total_income(obj1.getBasicPay(),
     obj13.get_total_NPPF(obj1.getBasicPay()),
     obj14.get_total_GIS(obj1.getBasicPay())
 ))
+
+
+# class taxBreaks:
+#     def getTB( Netincome):
+#     # def taxBreaks(Netincome):
+#         if obj40.Netincome() <= 300000:
+#             print(" 0% on NetIncome")
+#             TB1= (0/100)*Netincome
+#             print("Your income charge no tax rate" , TB1)
+
+#         elif 300001<Netincome <400000:
+#             print(" 10% on NetIncome")
+#             TB2= (10/100)*Netincome
+#             print("You have to pay" , TB2)
+
+#         elif 400001<Netincome <650000:
+#             print(" 15% on NetIncome")
+#             TB3= (15/100)*Netincome
+#             print("You have to pay" , TB3)
+
+#         elif 650001<Netincome <1000000:
+#             print(" 20% on NetIncome")
+#             TB4= (20/100)*Netincome
+#             print("You have to pay" , TB4)
+    
+#         elif 1000001<Netincome <1500000:
+#             print(" 25% on NetIncome")
+#             TB5= (25/100)*Netincome
+#             print("You have to pay" , TB5)
+
+#         else:
+#             print(" 30% on NetIncome")
+#             TB6= (30/100)*Netincome
+#             print("You have to pay" , TB6)
+
+# objTB= taxBreaks()
+# # objTB.set_GIS_percentage(float(input("Enter GIS deduction: ")))
+# print(objTB.getTB(obj40.get_total_income(obj1.getBasicPay())),  
+#     obj2.get_total_allowance(obj1.getBasicPay()),
+#     obj3.get_total_fees_remuneration_(obj1.getBasicPay()),
+#     obj4.get_total_commission(obj1.getBasicPay()), 
+#     obj5.get_total_leave_encashment(obj1.getBasicPay()), 
+#     obj6.get_total_shareofProfirreceived(obj1.getBasicPay()),
+#     obj7.get_total_consultancyIncome(obj1.getBasicPay()) , 
+#     obj8.get_total_HouseRentAllowances(obj1.getBasicPay()),
+#     obj9.get_total_mobile_allowances(obj1.getBasicPay()),
+#     obj10.get_total_conveyance_allowances(obj1.getBasicPay()),
+#     obj11.get_total_ltc(obj1.getBasicPay()),
+#     obj12.get_total_anyother_allowances(obj1.getBasicPay()),
+#     obj13.get_total_NPPF(obj1.getBasicPay()),
+#     obj14.get_total_GIS(obj1.getBasicPay())
+#                          )
