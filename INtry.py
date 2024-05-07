@@ -80,7 +80,7 @@ MA = MobileAllowances(float(input("Enter Mobile Allowances received in a month i
 
 # You can create similar objects for conveyance_allowances, ltc, and anyother_allowances
 
-allowances = [HA, MA]  # List of allowance objects
+allowances = [HA, MA]  #    List of allowance objects
 
 total_allowances = TotalAllowances(allowances)
 total_allowances.display_total_allowance(obj1.getBasicPay())
