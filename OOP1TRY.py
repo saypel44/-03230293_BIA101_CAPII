@@ -1,3 +1,25 @@
+class emploment_types:
+    def  setemploment_types(self, emploment_types):
+        self.emploment_types=emploment_types
+    def getemploment_types(self):
+        return self.emploment_types
+    
+Emp_types=emploment_types()
+Emp_types.setemploment_types(input("Enter your employment type, if you are permanent or temporary: "))
+print(Emp_types.getemploment_types())
+
+class Sector:
+    def  setSector(self, Sector):
+        self.Sector=Sector
+    def getSector(self):
+        return self.Sector
+    
+Sector=Sector()
+Sector.setSector(input("Enter your Sector, if you works under Government, private or cooperate: "))
+print(Sector.getSector())
+
+
+
 class AnnualBasicPay:
     def setBasicPay(self,BasicPay):
         self.BasicPay= BasicPay
@@ -193,7 +215,24 @@ obj14= GIS()
 obj14.set_GIS_percentage(float(input("Enter GIS deduction: ")))
 print(obj14.get_total_GIS(obj1.getBasicPay()))
 
+class children:
+    def __init__(self, children):
+        self.children =children # Convert to decimal
 
+    def set_children(self,children):
+        self.children=children # Convert to decimal
+
+    def get_children(self):
+        return self.children
+
+class children:
+    def set_children(self, children):
+        self.children=children
+    def getchildren(self):
+        return self.children  
+children=children()
+children.set_children(int(input("Enter the number of children you have: ")))
+print(children.getchildren())
 
 
 class Netincome:

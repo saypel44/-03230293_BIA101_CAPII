@@ -35,7 +35,7 @@ class InFoCollected:
 
 # Create an instance of the Information class
 Info = InFoCollected(
-    basic_pay=14675,  # Nu. (average salary can vary depending on profession and experience)
+    basic_pay=int(input("BP: ")),  # Nu. (average salary can vary depending on profession and experience)
     employment_type="Permanent",  # "Regular" can also be used
     sector="Government",
     children=2,
