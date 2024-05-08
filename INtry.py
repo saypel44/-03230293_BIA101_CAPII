@@ -7,80 +7,66 @@ class AnnualBasicPay:
 obj1 = AnnualBasicPay()
 obj1.setBasicPay(float(input("Enter your basic pay: ")))
 print(obj1.getBasicPay())
-# Call the method to calculate and print annual pay
-
-# class Other_benefits:
-#  # attribute and method of the parent class
-#     name = "" 
-#     def Other_benefits(self):
-#         print("Other_benefits: ")
-
-#         self.HouseRentAllowances=None 
-#         self.mobile_allowances=None 
-#         self.conveyance_allowances=None 
-#         self.ltc=None 
-#         self.anyother_allowances=None 
-
-# inherit from Animal
-class Allowance:
-  """
-  This class represents a generic allowance with basic functionalities.
-  """
-  def __init__(self, allowance_percentage, allowance_name):
-    self.allowance_percentage = allowance_percentage / 100  # Convert percentage to decimal
-    self.allowance_name = allowance_name
-
-  def set_allowance_percentage(self, allowance_percentage):
+        
+class Other_Allowance:
+  def __init__(self, allowance_percentage=0.0):
     self.allowance_percentage = allowance_percentage / 100  # Convert to decimal
 
-  def get_allowance_percentage(self):
-    return self.allowance_percentage
-
   def get_total_allowance(self, BasicPay):
-    return self.allowance_percentage * BasicPay * 12
+    return self.allowance_percentage * BasicPay
 
-class HouseRentAllowances(Allowance):
-  """
-  This class inherits from Allowance and specifically represents House Rent Allowances.
-  """
-  def __init__(self, allowance_percentage):
-    super().__init__(allowance_percentage, "House Rent Allowance")  # Call base class constructor with name
+class HouseRentAllowance(Other_Allowance):
+  pass  # Inherits everything from Allowance
 
-class MobileAllowances(Allowance):
-  """
-  This class inherits from Allowance and specifically represents Mobile Allowances.
-  """
-  def __init__(self, allowance_percentage):
-    super().__init__(allowance_percentage, "Mobile Allowance")  # Call base class constructor with name
+class MobileAllowance(Other_Allowance):
+  pass  # Inherits everything from Allowance
 
-# Similar classes for conveyance_allowances, ltc, and AnyOtherAllowances
+class ConveyanceAllowance(Other_Allowance):
+  pass  # Inherits everything from Allowance
 
-class TotalAllowances:
-  """
-  This class calculates the total allowance by combining all other allowances.
-  """
-  def __init__(self, allowances):
-    self.allowances = allowances
+class LTCAllowance(Other_Allowance):
+  pass  # Inherits everything from Allowance
 
-  def calculate_total_allowance(self):
+class any_otherallowances(Other_Allowance):
+  pass
+  
+
+class OtherAllowances:
+  def __init__(self, house_rent=0.0, mobile=0.0, conveyance=0.0, ltc=0.0, anyotherallowances=0.0):
+    self.house_rent_allowance = HouseRentAllowance(house_rent)(float(input("Enter house rent allowance percentage: ")))
+    self.mobile_allowance = MobileAllowance(mobile)
+    self.conveyance_allowance = ConveyanceAllowance(conveyance)
+    self.ltc_allowance = LTCAllowance(ltc)
+    self.anyother_allowances=any_otherallowances(anyotherallowances)
+
+  def get_total_other_allowances(self,BasicPay):
     total_allowance = 0
-    for allowance in self.allowances:
-      total_allowance += allowance.get_total_allowance()  # Assuming basic_pay is set globally
+    total_allowance += self.house_rent_allowance.get_total_allowance(BasicPay)*BasicPay
+    total_allowance += self.mobile_allowance.get_total_allowance(BasicPay)*BasicPay
+    total_allowance += self.conveyance_allowance.get_total_allowance(BasicPay)*BasicPay
+    total_allowance += self.ltc_allowance.get_total_allowance(BasicPay)*BasicPay
+    total_allowance+=self.anyother_allowances.get_total_allowance(BasicPay)*BasicPay            
     return total_allowance
 
-  def display_total_allowance(self):
-    total_allowance = self.calculate_total_allowance()
-    print(f"The Total Allowances I received: Nu.{total_allowance:.2f}")
+# Usage
+# basic_pay = float(input("Enter your basic pay: "))
 
-# Example usage
-# basic_pay = 10000  # Assuming basic_pay is set here
+# # other_allowances = OtherAllowances(
+# #     house_rent=float(input("Enter house rent allowance percentage: ")),
+# #     mobile=float(input("Enter mobile allowance percentage: ")),
+# #     conveyance=float(input("Enter conveyance allowance percentage: ")),
+# #     ltc=float(input("Enter LTC allowance percentage: ")),
+# #     anyotherallowances=float(input("Enter any other  allowance percentage: "))
+# )
 
-HA = HouseRentAllowances(float(input("Enter House rent Allowances received in a month in percentage: ")))
-MA = MobileAllowances(float(input("Enter Mobile Allowances received in a month in percentage: ")))
+total_other_allowances = other_allowances.get_total_other_allowances(obj1.getBasicPay())
+print(f"Total Other Allowances: {total_other_allowances:.2f}")
 
-# You can create similar objects for conveyance_allowances, ltc, and anyother_allowances
+class total:
+  def getTotal(self,AnnualBasicPay, OtherAllowances):
+        return AnnualBasicPay +OtherAllowances
 
-allowances = [HA, MA]  #    List of allowance objects
-
-total_allowances = TotalAllowances(allowances)
-total_allowances.display_total_allowance(obj1.getBasicPay())
+T = total()
+# T.setBasicPay(float(input("Enter your basic pay: ")))
+print(T.getTotal(obj1.getBasicPay(), other_allowances.get_total_other_allowances(obj1.getBasicPay())))
+        
