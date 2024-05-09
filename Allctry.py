@@ -215,15 +215,6 @@ obj14= GIS()
 obj14.set_GIS_percentage(float(input("Enter GIS deduction: ")))
 print(obj14.get_total_GIS(obj1.getBasicPay()))
 
-# class children:
-#     def __init__(self, children):
-#         self.children =children # Convert to decimal
-
-#     def set_children(self,children):
-#         self.children=children # Convert to decimal
-
-#     def get_children(self):
-#         return self.children
 
 class children:
     def set_children(self, children):
@@ -281,8 +272,8 @@ class Netincome:
     def getnetincome(self):
         return self.netincome
     
-NI=Netincome()
-NI.setnetincome(
+NetIncome=Netincome()
+NetIncome.setnetincome(
     obj1.getBasicPay(),
     obj2.get_total_allowance(obj1.getBasicPay()),
     obj3.get_total_fees_remuneration_(obj1.getBasicPay()),
@@ -298,61 +289,52 @@ NI.setnetincome(
     obj13.get_total_NPPF(obj1.getBasicPay()),
     obj14.get_total_GIS(obj1.getBasicPay()),
     childrenTax.get_Kids_tax())
-print(NI.getnetincome())
-    
-
-
-# def calculate_tax_breaks(NI):
-#     if NI <= 300000:
-#         print("0% on NetIncome")
-#         tax_break = 0
-#     elif 300001 < NI <= 400000:
-#         print("10% on NetIncome")
-#         tax_break = NI * 0.1
-#     elif 400001 < NI <= 650000:
-#         print("15% on NetIncome")
-#         tax_break = NI * 0.15
-#     elif 650001 < NI <= 1000000:
-#         print("20% on NetIncome")
-#         tax_break = NI * 0.2
-#     elif 1000001 < NI <= 1500000:  # Consider revising based on your tax structure
-#         print("25% on NetIncome")
-#         tax_break = NI * 0.25
-#     else:
-#         print("Tax bracket not defined. Please consult tax guidelines.")
-#         tax_break = None  # Indicate undefined tax bracket
-
-#     print(f"You have to pay: nU.{tax_break}")  # Format tax break with 2 decimal places
-#     return tax_break
-
-# # Example usage (assuming you have a way to get the net income)
-# NI = NI.getnetincome()
-# tax_break_amount = calculate_tax_breaks(NI)
-
-
+print(NetIncome.getnetincome())
+            
 class tax_break:
-    def calculate_tax_breaks(NI):
-        if NI <= 300000:
-            print("0% on NetIncome")
-            tax_break = 0
-        elif 300001 < NI <= 400000:
-            print("10% on NetIncome")
-            tax_break = NI * 0.1
-        elif 400001 < NI <= 650000:
-            print("15% on NetIncome")
-            tax_break = NI * 0.15
-        elif 650001 < NI <= 1000000:
-            print("20% on NetIncome")
-            tax_break = NI * 0.2
-        elif 1000001 < NI <= 1500000:  # Consider revising based on your tax structure
-            print("25% on NetIncome")
-            tax_break = NI * 0.25
-        else:
-            print("Tax bracket not defined. Please consult tax guidelines.")
-            tax_break = None  # Indicate undefined tax bracket
+  def __init__(self):  # Initialize an empty variable to store tax info
+    self.tax_info = None
 
-        print(f"You have to pay: nU.{tax_break}")  # Format tax break with 2 decimal places
-        return tax_break
-NI = NI.getnetincome()  # Assuming NI is defined elsewhere
-tax_break_obj = tax_break()  # Create an instance of the TaxBreak class
-tax_break_amount = tax_break_obj.calculate_tax_breaks(NI)
+  def calculate_tax_breaks(self, Netincome):
+    if Netincome <= 300000:
+      print("0% on NetIncome,so, No Tax should be paid")
+    
+    elif 300001 < Netincome <= 400000:
+      print("10% on NetIncome")
+      Tax = Netincome * 0.1
+      print("You have to pay", Tax)
+
+    elif 400001 < Netincome < 650001:
+        print("15% on NetIncome")
+        Tax=(Netincome * 0.15)
+        print("You have to pay", Tax)
+
+        
+    elif 650001 < Netincome < 1000001:
+        print("20% on NetIncome")
+        Tax=(Netincome * 0.2)
+        print("You have to pay",Tax)
+        
+    elif 1000001 < Netincome < 1500001:  # Consider revising based on your tax structure
+        print("25% on NetIncome")
+        Tax=(Netincome * 0.25)
+        print("You have to pay", Tax)
+    # ... Add similar logic for other tax brackets ...
+    else:
+      print("30% on NetIncome")
+      Tax=(Netincome * 0.30)
+      print("You have to pay", Tax)
+    self.tax_info = "Tax calculation completed."  # Update after calculations
+
+  def get_tax_breaks(self):
+    return self.tax_info  # Return the stored tax info
+
+# Create an instance of the TaxBreak class
+TB = tax_break()
+
+# Calculate tax breaks using NetIncome (assuming you have its value)
+TB.calculate_tax_breaks(NetIncome.getnetincome())
+
+# Get the calculated tax info
+tax_info = TB.get_tax_breaks()
+print(tax_info)
