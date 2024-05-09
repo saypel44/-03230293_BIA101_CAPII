@@ -40,6 +40,7 @@ class Allowance:
 
 # Example usage
 BasicPay= obj1.getBasicPay()
+
 obj2 = Allowance("other allowance")  # Create another allowance object
 obj2.set_percentage() 
 
@@ -58,7 +59,6 @@ obj11.set_percentage()
 obj12=Allowance("Other_anyother_allowances")
 obj12.set_percentage() 
 
-total_allowances=Allowance()
 
 total_allowances=obj2.get_allowance(BasicPay)
 +obj8.get_allowance(BasicPay)

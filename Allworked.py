@@ -1,5 +1,6 @@
+#Employee employment type
 class emploment_types:
-    def  setemploment_types(self, emploment_types):
+    def  setemploment_types(self, emploment_types): 
         self.emploment_types=emploment_types
     def getemploment_types(self):
         return self.emploment_types   
@@ -7,6 +8,7 @@ Emp_types=emploment_types()
 Emp_types.setemploment_types(input("Enter your employment type; permanent or temporary:  "))
 print(Emp_types.getemploment_types())
 
+#Employee sector
 class Sector:
     def  setSector(self, Sector):
         self.Sector=Sector
@@ -16,6 +18,7 @@ Sector=Sector()
 Sector.setSector(input("Enter your Sector, if you works under Government, private or cooperate: "))
 print(Sector.getSector())
 
+#employee basic pay
 class BasicPay:
     def setBasicPay(self,BasicPay):
         self.BasicPay= BasicPay
@@ -25,6 +28,7 @@ obj1 = BasicPay()
 obj1.setBasicPay(float(input("Enter your basic pay: ")))
 print(obj1.getBasicPay())
 
+#employee recieving only allowances
 class Allowance:
     def __init__(self, allowance_percentage=0.0):
         self.allowance_percentage = allowance_percentage  # Convert to decimal
@@ -38,6 +42,7 @@ obj2 = Allowance()
 obj2.set_allowance_percentage(float(input("Enter your Allowance: ")))
 print(obj2.get_total_allowance(obj1.getBasicPay())) 
 
+#Employee receiving fees remuneration
 class fees_remuneration:
     def __init__(self, fees_remuneration_percentage=0.0):
         self.fees_remuneration_percentage = fees_remuneration_percentage  # Convert to decimal
@@ -51,6 +56,7 @@ obj3= fees_remuneration()
 obj3.set_fees_remuneration_percentage(float(input("Enter your fees_remuneration_: ")))
 print(obj3.get_total_fees_remuneration_(obj1.getBasicPay())) 
 
+#Employee receiving commision 
 class commission:
     def __init__(self, commission_percentage=0.0):
         self.commission_percentage = commission_percentage  # Convert to decimal
@@ -64,6 +70,7 @@ obj4= commission()
 obj4.set_commission_percentage(float(input("Enter your commission: ")))
 print(obj4.get_total_commission(obj1.getBasicPay())) 
 
+#Employee receiving leanve encasment
 class leave_encashment:
     def __init__(self, leave_encashment_percentage=0.0):
         self.leave_encashment_percentage = leave_encashment_percentage # Convert to decimal
@@ -77,6 +84,7 @@ obj5= leave_encashment()
 obj5.set_leave_encashment_percentage(float(input("Enter your leave_encashment: ")))
 print(obj5.get_total_leave_encashment(obj1.getBasicPay())) 
 
+#Employee receiving share of profit
 class shareofProfirreceived:
     def __init__(self, shareofProfirreceived_percentage=0.0):
         self.shareofProfirreceived_percentage = shareofProfirreceived_percentage  # Convert to decimal
@@ -90,6 +98,8 @@ obj6= shareofProfirreceived()
 obj6.set_shareofProfirreceived_percentage(float(input("Enter your share of Profit received: ")))
 print(obj6.get_total_shareofProfirreceived(obj1.getBasicPay()))
 
+
+#Employee receiving consultancy income
 class consultancyIncome:
     def __init__(self, consultancyIncome_percentage=0.0):
         self.consultancyIncome_percentage = consultancyIncome_percentage # Convert to decimal
@@ -102,7 +112,8 @@ class consultancyIncome:
 obj7= consultancyIncome()
 obj7.set_consultancyIncome_percentage(float(input("Enter your consultancy Income received: ")))
 print(obj7.get_total_consultancyIncome(obj1.getBasicPay()))
-    
+
+#Employee receiving other allowances that are house rent, mobile, conyevance, ltc and other allowances     
 class Other_HouseRentAllowances:
     def __init__(self, HouseRentAllowances_percentage=0.0):
         self.HouseRentAllowances_percentage = HouseRentAllowances_percentage  # Convert to decimal
@@ -169,6 +180,7 @@ obj12= Other_anyother_allowances()
 obj12.set_anyother_allowances_percentage(float(input("Enter your other allowances that is anyother_allowances received: ")))
 print(obj12.get_total_anyother_allowances(obj1.getBasicPay()))
 
+#Employee deduction NPPF 
 class NPPF:
     def __init__(self, NPPF_percentage=0.0):
         self.NPPF_percentage =NPPF_percentage # Convert to decimal
@@ -182,7 +194,7 @@ obj13= NPPF()
 obj13.set_NPPF_percentage(float(input("Enter NPPF deduction: ")))
 print(obj13.get_total_NPPF(obj1.getBasicPay()))
 
-
+#Employee deduction GIS
 class GIS:
     def __init__(self, GIS_percentage=0.0):
         self.GIS_percentage =GIS_percentage # Convert to decimal
@@ -196,7 +208,7 @@ obj14= GIS()
 obj14.set_GIS_percentage(float(input("Enter GIS deduction: ")))
 print(obj14.get_total_GIS(obj1.getBasicPay()))
 
-
+#Employee having child or not 
 class children:
     def set_children(self, children):
         self.children=children
@@ -206,7 +218,7 @@ children=children()
 children.set_children(int(input("Enter the number of children you have: ")))
 print(children.getchildren())
 
-
+# if have kids, tax on it
 class Kids_tax:
         def set_Kids_tax(self, children):
             self.Kids_tax= children* 85
@@ -217,7 +229,7 @@ childrenTax=Kids_tax()
 childrenTax.set_Kids_tax(children.getchildren())
 print(childrenTax.get_Kids_tax())
 
-
+#Employee NetIncome after adding incomes and deduct the NPPF and GIS
 class Netincome:
     def setnetincome(self,  BasicPay, 
                          Allowance, 
@@ -271,7 +283,9 @@ NetIncome.setnetincome(
     obj14.get_total_GIS(obj1.getBasicPay()),
     childrenTax.get_Kids_tax())
 print(NetIncome.getnetincome())
-            
+
+
+#implication of tax breaks based on emploees netincome            
 class tax_break:
   def __init__(self):  # Initialize an empty variable to store tax info
     self.tax_info = None
