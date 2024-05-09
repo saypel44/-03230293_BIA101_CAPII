@@ -215,15 +215,15 @@ obj14= GIS()
 obj14.set_GIS_percentage(float(input("Enter GIS deduction: ")))
 print(obj14.get_total_GIS(obj1.getBasicPay()))
 
-class children:
-    def __init__(self, children):
-        self.children =children # Convert to decimal
+# class children:
+#     def __init__(self, children):
+#         self.children =children # Convert to decimal
 
-    def set_children(self,children):
-        self.children=children # Convert to decimal
+#     def set_children(self,children):
+#         self.children=children # Convert to decimal
 
-    def get_children(self):
-        return self.children
+#     def get_children(self):
+#         return self.children
 
 class children:
     def set_children(self, children):
@@ -235,8 +235,18 @@ children.set_children(int(input("Enter the number of children you have: ")))
 print(children.getchildren())
 
 
-class Netincome:
+class Kids_tax:
+        def set_Kids_tax(self, children):
+            self.Kids_tax= children* 85
 
+        def get_Kids_tax(self):
+            return self.Kids_tax 
+childrenTax=Kids_tax()
+childrenTax.set_Kids_tax(children.getchildren())
+print(childrenTax.get_Kids_tax())
+
+
+class Netincome:
     def get_total_income(self, 
                          BasicPay, 
                          Allowance, 
@@ -255,7 +265,7 @@ class Netincome:
                          
                          ):
         
-        return (BasicPay 
+        return ( BasicPay 
                 + Allowance
                 +fees_remuneration
                 +commission 
@@ -294,7 +304,7 @@ print(obj40.get_total_income(
 class taxBreaks:
     def getTB ( Netincome):
     # def taxBreaks(Netincome):
-        if Netincome() <= 300000:
+        if Netincome <= 300000:
             print(" 0% on NetIncome")
             TB1= (0/100)*Netincome
             print("Your income charge no tax rate" , TB1)
@@ -326,20 +336,20 @@ class taxBreaks:
 
 objTB= taxBreaks()
 # objTB.set_GIS_percentage(float(input("Enter GIS deduction: ")))
-print(objTB.getTB(obj40.get_total_income(BasicPay, 
-                         Allowance, 
-                         fees_remuneration,
-                         commission, 
-                         leave_encashment, 
-                         consultancyIncome , 
-                         shareofProfirreceived,
-                         Other_HouseRentAllowances, 
-                         Other_mobile_allowances,
-                         Other_conveyance_allowances,
-                         Other_ltc,
-                         Other_anyother_allowances,
-                         NPPF,
-                         GIS)))
+# print(objTB.getTB(obj40.get_total_income(BasicPay, 
+#                          Allowance, 
+#                          fees_remuneration,
+#                          commission, 
+#                          leave_encashment, 
+#                          consultancyIncome , 
+#                          shareofProfirreceived,
+#                          Other_HouseRentAllowances, 
+#                          Other_mobile_allowances,
+#                          Other_conveyance_allowances,
+#                          Other_ltc,
+#                          Other_anyother_allowances,
+#                          NPPF,
+#                          GIS)))
 print(objTB.getTB(obj40.get_total_income( obj1.getBasicPay()),
     obj2.get_total_allowance(obj1.getBasicPay()),
     obj3.get_total_fees_remuneration_(obj1.getBasicPay()),
