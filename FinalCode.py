@@ -275,9 +275,3 @@ AddOtherBenifits= AddOtherBenifits()
 AddOtherBenifits.display_AddOtherBenifits(BP.annual_basicPay, A.annual_allowance, com.commisiion, lc.leave_encashment, SOP.shareofProfirreceived, CI.consultancyIncome , OB.TOB.Total_Other_benefits)
 
 
-
-#aming Conventions: Standardize class and method naming for better readability (e.g., AnnualIncome instead of BasicPay, calculateTotalBenefits instead of display_Total_Other_benefits).
-# Code Structure: Refactor the redundant accumulation logic in the Add* classes. Consider a single class with methods to calculate the total based on different earning types.
-# Error Handling: Implement error handling for invalid user input (e.g., negative percentages).
-# Inheritance: Explore inheritance for code reuse as mentioned earlier.
-# Comments: Add comments to explain the purpose of classes and methods for better maintainability.
