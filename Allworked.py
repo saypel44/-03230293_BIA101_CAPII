@@ -2,34 +2,28 @@ class emploment_types:
     def  setemploment_types(self, emploment_types):
         self.emploment_types=emploment_types
     def getemploment_types(self):
-        return self.emploment_types
-    
+        return self.emploment_types   
 Emp_types=emploment_types()
-Emp_types.setemploment_types(input("Enter your employment type, if you are permanent or temporary: "))
+Emp_types.setemploment_types(input("Enter your employment type; permanent or temporary:  "))
 print(Emp_types.getemploment_types())
 
 class Sector:
     def  setSector(self, Sector):
         self.Sector=Sector
     def getSector(self):
-        return self.Sector
-    
+        return self.Sector   
 Sector=Sector()
 Sector.setSector(input("Enter your Sector, if you works under Government, private or cooperate: "))
 print(Sector.getSector())
-
-
 
 class BasicPay:
     def setBasicPay(self,BasicPay):
         self.BasicPay= BasicPay
     def getBasicPay(self):
         return self.BasicPay * 12
-
 obj1 = BasicPay()
 obj1.setBasicPay(float(input("Enter your basic pay: ")))
 print(obj1.getBasicPay())
-
 
 class Allowance:
     def __init__(self, allowance_percentage=0.0):
@@ -40,7 +34,6 @@ class Allowance:
 
     def get_total_allowance(self, BasicPay):
         return self.allowance_percentage *BasicPay
-
 obj2 = Allowance()
 obj2.set_allowance_percentage(float(input("Enter your Allowance: ")))
 print(obj2.get_total_allowance(obj1.getBasicPay())) 
@@ -54,7 +47,6 @@ class fees_remuneration:
 
     def get_total_fees_remuneration_(self, BasicPay):
         return self.fees_remuneration_percentage *BasicPay 
-
 obj3= fees_remuneration()
 obj3.set_fees_remuneration_percentage(float(input("Enter your fees_remuneration_: ")))
 print(obj3.get_total_fees_remuneration_(obj1.getBasicPay())) 
@@ -68,7 +60,6 @@ class commission:
 
     def get_total_commission(self, BasicPay):
         return self.commission_percentage *BasicPay 
-
 obj4= commission()
 obj4.set_commission_percentage(float(input("Enter your commission: ")))
 print(obj4.get_total_commission(obj1.getBasicPay())) 
@@ -82,7 +73,6 @@ class leave_encashment:
 
     def get_total_leave_encashment(self, BasicPay):
         return self.leave_encashment_percentage *BasicPay
-
 obj5= leave_encashment()
 obj5.set_leave_encashment_percentage(float(input("Enter your leave_encashment: ")))
 print(obj5.get_total_leave_encashment(obj1.getBasicPay())) 
@@ -96,7 +86,6 @@ class shareofProfirreceived:
 
     def get_total_shareofProfirreceived(self, BasicPay):
         return self.shareofProfirreceived_percentage *BasicPay 
-
 obj6= shareofProfirreceived()
 obj6.set_shareofProfirreceived_percentage(float(input("Enter your share of Profit received: ")))
 print(obj6.get_total_shareofProfirreceived(obj1.getBasicPay()))
@@ -110,7 +99,6 @@ class consultancyIncome:
 
     def get_total_consultancyIncome(self, BasicPay):
         return self.consultancyIncome_percentage *BasicPay
-
 obj7= consultancyIncome()
 obj7.set_consultancyIncome_percentage(float(input("Enter your consultancy Income received: ")))
 print(obj7.get_total_consultancyIncome(obj1.getBasicPay()))
@@ -124,7 +112,6 @@ class Other_HouseRentAllowances:
 
     def get_total_HouseRentAllowances(self, BasicPay):
         return self.HouseRentAllowances_percentage *BasicPay 
-
 obj8= Other_HouseRentAllowances()
 obj8.set_HouseRentAllowances_percentage(float(input("Enter your other allowances that is house rent house rent  Income received: ")))
 print(obj8.get_total_HouseRentAllowances(obj1.getBasicPay()))
@@ -139,7 +126,6 @@ class Other_mobile_allowances:
 
     def get_total_mobile_allowances(self, BasicPay):
         return self.mobile_allowances_percentage *BasicPay
-
 obj9= Other_mobile_allowances()
 obj9.set_mobile_allowances_percentage(float(input("Enter your other allowances that is mobile_allowances received: ")))
 print(obj9.get_total_mobile_allowances(obj1.getBasicPay()))
@@ -153,7 +139,6 @@ class Other_conveyance_allowances:
 
     def get_total_conveyance_allowances(self, BasicPay):
         return self.conveyance_allowances_percentage *BasicPay
-
 obj10= Other_conveyance_allowances()
 obj10.set_conveyance_allowances_percentage(float(input("Enter your other allowances that is conveyance_allowances received: ")))
 print(obj10.get_total_conveyance_allowances(obj1.getBasicPay()))
@@ -167,7 +152,6 @@ class Other_ltc:
 
     def get_total_ltc(self, BasicPay):
         return self.ltc_percentage *BasicPay
-
 obj11= Other_ltc()
 obj11.set_ltc_percentage(float(input("Enter your other allowances that is ltc received: ")))
 print(obj11.get_total_ltc(obj1.getBasicPay()))
@@ -181,7 +165,6 @@ class Other_anyother_allowances:
 
     def get_total_anyother_allowances(self, BasicPay):
         return self.anyother_allowances_percentage *BasicPay
-
 obj12= Other_anyother_allowances()
 obj12.set_anyother_allowances_percentage(float(input("Enter your other allowances that is anyother_allowances received: ")))
 print(obj12.get_total_anyother_allowances(obj1.getBasicPay()))
@@ -195,7 +178,6 @@ class NPPF:
 
     def get_total_NPPF(self, BasicPay):
         return self.NPPF_percentage *BasicPay
-
 obj13= NPPF()
 obj13.set_NPPF_percentage(float(input("Enter NPPF deduction: ")))
 print(obj13.get_total_NPPF(obj1.getBasicPay()))
@@ -210,7 +192,6 @@ class GIS:
 
     def get_total_GIS(self, BasicPay):
         return self.GIS_percentage *BasicPay
-
 obj14= GIS()
 obj14.set_GIS_percentage(float(input("Enter GIS deduction: ")))
 print(obj14.get_total_GIS(obj1.getBasicPay()))
@@ -328,13 +309,11 @@ class tax_break:
 
   def get_tax_breaks(self):
     return self.tax_info  # Return the stored tax info
-
+  
 # Create an instance of the TaxBreak class
 TB = tax_break()
-
 # Calculate tax breaks using NetIncome (assuming you have its value)
 TB.calculate_tax_breaks(NetIncome.getnetincome())
-
 # Get the calculated tax info
 tax_info = TB.get_tax_breaks()
 print(tax_info)
