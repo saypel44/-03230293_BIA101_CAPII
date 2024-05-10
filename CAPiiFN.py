@@ -1,4 +1,4 @@
-#Employee employment type
+#Employee employment type if he/she are permanent or contract 
 class Emploment_Types:
     def  setEmploment_Types(self, emploment_types): 
         self.emploment_types=emploment_types
@@ -8,7 +8,7 @@ Emp_types=Emploment_Types()
 Emp_types.setEmploment_Types(input("Enter your employment type; permanent or contract:  "))
 print(Emp_types.getEmploment_Types())
 
-#Employee sector
+#Employee sector if individual is working under government, private and cooperate 
 class Sector:
     def  setSector(self, Sector):
         self.Sector=Sector
@@ -18,7 +18,8 @@ Sector=Sector()
 Sector.setSector(input("Enter your Sector; Government, private or cooperate: "))
 print(Sector.getSector())
 
-#employee basic pay
+#employee basic pay 
+#Employee will type their monthly basic and it will calculated to annual basic pay individual received 
 class BasicPay:
     def setBasicPay(self,BasicPay):
         self.BasicPay= BasicPay
@@ -29,6 +30,7 @@ obj1.setBasicPay(float(input("Enter your monthly basic pay: ")))
 print(obj1.getBasicPay())
 
 #employee recieving only allowances
+#Individual has to type their monthly allowances they received in rate and it will be calculated into annual allowances they received on basic pay
 class Allowance:
     def __init__(self, allowance_percentage=0.0):
         self.allowance_percentage = allowance_percentage  
@@ -43,6 +45,7 @@ obj2.set_allowance_percentage(float(input("Enter your Allowance receive in perce
 print(obj2.get_total_allowance(obj1.getBasicPay())) 
 
 #Employee receiving fees remuneration
+#Individual has to type their monthly fees remuneration they received in rate and it will be calculated into annual fees remuneration they received on basic pay
 class fees_remuneration:
     def __init__(self, fees_remuneration_percentage=0.0):
         self.fees_remuneration_percentage = fees_remuneration_percentage  
@@ -57,6 +60,7 @@ obj3.set_fees_remuneration_percentage(float(input("Enter your fees remuneration 
 print(obj3.get_total_fees_remuneration_(obj1.getBasicPay())) 
 
 #Employee receiving commision 
+#Individual has to type their monthly commission they received in rate and it will be calculated into annual commission they received on basic pay
 class commission:
     def __init__(self, commission_percentage=0.0):
         self.commission_percentage = commission_percentage  
@@ -70,6 +74,7 @@ obj4.set_commission_percentage(float(input("Enter your commission receive in per
 print(obj4.get_total_commission(obj1.getBasicPay())) 
 
 #Employee receiving leanve encasment
+#Individual has to type their monthly leave encashment they received in rate and it will be calculated into annual leave encashment they received on basic pay
 class leave_encashment:
     def __init__(self, leave_encashment_percentage=0.0):
         self.leave_encashment_percentage = leave_encashment_percentage 
@@ -83,7 +88,8 @@ obj5= leave_encashment()
 obj5.set_leave_encashment_percentage(float(input("Enter your leave_encashment receive in percentage: ")))
 print(obj5.get_total_leave_encashment(obj1.getBasicPay())) 
 
-#Employee receiving share of profit
+#Employee receiving share of profit\
+#Individual has to type their monthly share of Profit received they received in rate and it will be calculated into annual share of Profit received they received on basic pay
 class shareofProfirreceived:
     def __init__(self, shareofProfirreceived_percentage=0.0):
         self.shareofProfirreceived_percentage = shareofProfirreceived_percentage  
@@ -99,6 +105,7 @@ print(obj6.get_total_shareofProfirreceived(obj1.getBasicPay()))
 
 
 #Employee receiving consultancy income
+#Individual has to type their monthly consultancy Income they received in rate and it will be calculated into annual consultancy Income they received on basic pay
 class consultancyIncome:
     def __init__(self, consultancyIncome_percentage=0.0):
         self.consultancyIncome_percentage = consultancyIncome_percentage
@@ -113,6 +120,7 @@ obj7.set_consultancyIncome_percentage(float(input("Enter your consultancy Income
 print(obj7.get_total_consultancyIncome(obj1.getBasicPay()))
 
 #Employee receiving other allowances that are house rent, mobile, conyevance, ltc and other allowances     
+#Individual has to type their monthly other allowances they received in rate and it will be calculated into annual other allowances they received on basic pay
 class Other_HouseRentAllowances:
     def __init__(self, HouseRentAllowances_percentage=0.0):
         self.HouseRentAllowances_percentage = HouseRentAllowances_percentage 
@@ -132,7 +140,7 @@ class Other_mobile_allowances:
         self.mobile_allowances_percentage = mobile_allowances_percentage  
 
     def set_mobile_allowances_percentage(self,mobile_allowances_percentage):
-        self.mobile_allowances_percentage =mobile_allowances_percentage / 100  # Convert to decimal
+        self.mobile_allowances_percentage =mobile_allowances_percentage / 100   # Convert to decimal
 
     def get_total_mobile_allowances(self, BasicPay):
         return self.mobile_allowances_percentage *BasicPay  #returns Annual amount
@@ -181,6 +189,7 @@ print(obj12.get_total_anyother_allowances(obj1.getBasicPay()))
 
 
 #Employee deduction NPPF 
+#Individual has to type their NPPF rate individual has to pay in monthly basis and it will be calculates into annual NPPF individual has to pay 
 class NPPF:
     def __init__(self, NPPF_percentage=0.0):
         self.NPPF_percentage =NPPF_percentage 
@@ -196,6 +205,7 @@ print(obj13.get_total_NPPF(obj1.getBasicPay()))
 
 
 #Employee deduction GIS
+#Individual has to type their GIS rate individual has to pay in monthly basis and it will be calculates into annual GIS individual has to pay 
 class GIS:
     def __init__(self, GIS_percentage=0.0):
         self.GIS_percentage =GIS_percentage 
@@ -211,15 +221,18 @@ print(obj14.get_total_GIS(obj1.getBasicPay()))
 
 
 #Employee having child or not 
+#Individual has to enter how many individual's child has going school 
 class children:
     def set_children(self, children):
         self.children=children
     def getchildren(self):
         return self.children   #returns the number children employee has
 children=children()
-children.set_children(int(input("Enter the number of children going school: ")))
+children.set_children(int(input("Enter the number of children going school, or if there is not, enter 0: ")))
 print(children.getchildren())
 
+#if individual has kids g0ing school, enter how much allowances they received from the company annualy
+#Allowances receive should be maximum of Nu.350,000/-
 class Kidsallowances:
     def set_Kidsallowances(self, Kidsallowances):
         self.Kidsallowances=Kidsallowances 
@@ -230,10 +243,10 @@ Kidsallowances.set_Kidsallowances(int(input("Enter the amount of allowances you 
 print(Kidsallowances.getKidsallowances())
 
 
-# if have kids, tax on it
+# Calculate  the allowances they recied based on number of the child going school / education allowances on child individual received
 class Kids_tax:
         def set_Kids_tax(self, children, Kidsallowances):
-            self.Kids_tax= children * Kidsallowances #Calculates the education allowances receied based on number of kids going school
+            self.Kids_tax= children * Kidsallowances #Calculates the education allowances received based on number of kids going school
 
         def get_Kids_tax(self):
             return self.Kids_tax 
@@ -241,7 +254,9 @@ childrenTax=Kids_tax()
 childrenTax.set_Kids_tax(children.getchildren(), Kidsallowances.getKidsallowances())
 print(childrenTax.get_Kids_tax())
 
-#Employee NetIncome after adding incomes and deduct the NPPF and GIS and even education allowances on kids
+#Employee NetIncome / taxable income (annually)
+#addition of basicpay, allowances, fees_remuneration, commission, leave_encashment, consultancyIncome , shareofProfirreceived, other allowances include Other_HouseRentAllowances, Other_mobile_allowances, Other_conveyance_allowances,Other_ltc,Other_anyother_allowances,
+#subtraction of NPPF,GIS, Kids_tax
 class Netincome:
     def setnetincome(self,  BasicPay, 
                          Allowance, 
@@ -297,38 +312,39 @@ NetIncome.setnetincome(
 print(NetIncome.getnetincome())
 
 
-#implication of tax breaks based on emploees netincome            
+#implication of tax breaks based on employees netincome/taxable income
+            
 class tax_break:
   def __init__(self): 
     self.tax_info = None
 
   def calculate_tax_breaks(self, Netincome):
-    if Netincome <= 300000:
+    if Netincome <= 300000: #If indivuals netincome earned is below or equal to Nu.300,000/-, individual doesn't have to pay tax
       print("0% on NetIncome,so, No Tax should be paid")
     
-    elif 300001 < Netincome <= 400000:
-      print("10% on NetIncome")
+    elif 300001 < Netincome <= 400000: # if netincome is between Nu.300,001 and equal to Nu,400,000/-, one has to pay 10% on netincome 
+      print("10% on NetIncome") 
       Tax = Netincome * 0.1 #10% is implemented on taxable income 
       print("You have to pay", Tax)
 
-    elif 400001 < Netincome <= 650000:
+    elif 400001 < Netincome <= 650000: # if netincome is between Nu.400,001 and equal to Nu,650,000/-, one has to pay 15% on netincome 
         print("15% on NetIncome")
         Tax=(Netincome * 0.15) #15% is implemented on taxable income
         print("You have to pay", Tax)
 
         
-    elif 650001 < Netincome <= 1000000:
+    elif 650001 < Netincome <= 1000000: # if netincome is between Nu.650,001 and equal to Nu,1000,000/-, one has to pay 20% on netincome 
         print("20% on NetIncome")
         Tax=(Netincome * 0.2) #20% is implemented on taxable income
         print("You have to pay",Tax)
         
-    elif 1000001 < Netincome < 1500000:  
+    elif 1000001 < Netincome < 1500000: # if netincome is between Nu.1000,001 and equal to Nu,15000,000/-, one has to pay 25% on netincome  
         print("25% on NetIncome")
         Tax=(Netincome * 0.25) #25% is implemented on taxable income
         print("You have to pay", Tax)
 
     else:
-      print("30% on NetIncome")
+      print("30% on NetIncome") # if netincome exceeds 1500,001 one has to pay 30% on neincome
       Tax=(Netincome * 0.30) #30% is implemented on taxable income
       print("You have to pay", Tax)
     self.tax_info = "Tax calculation completed."  # Update after calculations
